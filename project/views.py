@@ -4,6 +4,6 @@ from .models import Project
 
 
 def project_list(request):
-
-    return render(request, 'project_list.html')
+    projects = Project.objects
+    return render(request, 'project_list.html', {'projects': projects})
 
