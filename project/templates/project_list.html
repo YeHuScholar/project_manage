@@ -6,5 +6,19 @@
 </head>
 <body>
 <h1>这里是项目列表</h1>
+<table width="300" border="1" cellspacing="0">
+    <tr>
+        <th>项目名称</th>
+        <th>金额</th>
+        <th>创建时间</th>
+    </tr>
+    {% for project in projects.all %}
+    <tr>
+        <td>{{ project.name }}</td>
+        <td>{{ project.price }}</td>
+        <td>{{ project.date_time }}</td>
+    </tr>
+    {% endfor %}
+</table>
 </body>
 </html>
