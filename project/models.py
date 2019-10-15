@@ -10,3 +10,6 @@ class Project(models.Model):
     date_time = models.DateTimeField(auto_now=False, auto_now_add=True)
     # id = models.UUIDField(primary_key=True, editable=False)
 
+    def __str__(self):
+        return self.name
+
