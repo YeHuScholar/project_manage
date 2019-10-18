@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加项目</title>
+</head>
+<body>
+<h2 align="center">添加新的项目</h2>
+<br>
+
+<form method="POST" action=" {% url '添加项目' %} " align="center" enctype="multipart/form-data">
+    项目名称：
+    <br>
+    <input type="text" name="项目名称" value="例：东海油气田一期">
+    <br>
+    <br>
+    项目描述：
+    <br>
+    <textarea cols="100" rows="10" name="项目描述">在这里写项目描述</textarea>
+    <br>
+    <br>
+    金额：
+    <br>
+    <input type="number" name="金额" value="0.00">
+    <br>
+    <br>
+    <input class="btn btn-primary" type="submit" value="发布">
+</form>
+</body>
+</html>

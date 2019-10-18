@@ -20,5 +20,5 @@ import project.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', project.views.project_list, name='项目列表'),
-    # path('project/', include("project.urls")),
+    path('project/', include("project.urls")),
 ]
