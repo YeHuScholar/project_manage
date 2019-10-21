@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import Project
 # Create your views here.
 
@@ -7,6 +7,10 @@ def project_list(request):
     projects = Project.objects
     return render(request, 'project_list.html', {'projects': projects})
 
+
+def detail(request, project_id):
+    project = get_object_or_404(Project, pk = project_id)
+    return render(request, 'detail.html', {'project':project})
 
 def add(request):
     if request.method == 'GET':
