@@ -9,6 +9,7 @@
 <br>
 
 <form method="POST" action=" {% url '添加项目' %} " align="center">
+    {% csrf_token %}
     项目名称：
     <br>
     <input type="text" name="项目名称" value="例：东海油气田一期">
