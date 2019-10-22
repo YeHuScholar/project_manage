@@ -180,7 +180,7 @@
     </thead>
     {% for project in projects.all %}
     <tr>
-        <td><a href="project/{{ project.id }}">{{ project.name }}</a></td>
+        <td><a href="../{{ project.id }}">{{ project.name }}</a></td>
         <td>{{ project.price }}</td>
     </tr>
     {% endfor %}

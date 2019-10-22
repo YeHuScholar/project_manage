@@ -10,7 +10,7 @@ def project_list(request):
 
 def detail(request, project_id):
     project = get_object_or_404(Project, pk = project_id)
-    return render(request, 'detail.html', {'project':project})
+    return render(request, 'detail.html', {'project': project})
 
 def add(request):
     if request.method == 'GET':
