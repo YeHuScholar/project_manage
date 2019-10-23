@@ -24,6 +24,8 @@ def add(request):
         project.name = name
         project.describe = describe
         project.price = price
+
+        project.owner = request.user
         
         project.save()
         return redirect('项目列表')
