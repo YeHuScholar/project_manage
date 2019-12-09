@@ -1,31 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+
     <title>添加项目</title>
 </head>
 <body>
-<h2 align="center">添加新的项目</h2>
-<br>
+<div class="container" style="margin-top: 30px;">
+    <h2 align="center">添加新的项目</h2>
 
-<form method="POST" action=" {% url '添加项目' %} " align="center" enctype="multipart/form-data">
-    {% csrf_token %}
-    项目名称：
-    <br>
-    <input type="text" name="项目名称" value="例：东海油气田一期">
-    <br>
-    <br>
-    项目描述：
-    <br>
-    <textarea cols="100" rows="10" name="项目描述">在这里写项目描述</textarea>
-    <br>
-    <br>
-    金额：
-    <br>
-    <input type="number" name="金额" value="0.00">
-    <br>
-    <br>
-    <input class="btn btn-primary" type="submit" value="发布">
-</form>
+    {#<form method="POST" action=" {% url '添加项目' %} " align="center" enctype="multipart/form-data">#}
+    <form method="POST" action=" {% url '添加项目' %} ">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-md-9">
+                <label for="project_name">项目名称</label>
+                <input type="text" class="form-control" id="project_name" name="项目名称" placeholder="例：东海油气田一期">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="amt">金额</label>
+                <input type="number" class="form-control" id="amt" name="金额" placeholder="0.00">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="project_desc">项目描述</label>
+            <textarea class="form-control" id="project_desc" name="项目描述" rows="3">在这里写项目描述</textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">提交</button>
+    </form>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 </html>

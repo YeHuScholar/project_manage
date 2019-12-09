@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -13,26 +13,68 @@
 </head>
 <body>
 <div class="container" style="margin-top: 30px;">
-<a class="nav-link" href="{% url '添加项目'%}">添加项目</a>
-<table class="table table-striped">
-    <thead class="thead-dark">
+    <table class="table table-striped" id="table">
+        <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
             <th scope="col">项目名称</th>
             <th scope="col">金额</th>
         </tr>
         </thead>
-<tbody>
-    {% for project in projects.all %}
-    <tr>
-        <th scope="row">{{ project.id }}</th>
-        <td><a href="../{{ project.id }}">{{ project.name }}</a></td>
-        <td>{{ project.price }}</td>
-    </tr>
-    {% endfor %}
-</tbody>
-</table>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>东海油气田一期工程2019项目</td>
+            <td>11100000</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>南海油气田一期工程</td>
+            <td>1230000</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>旧金山跨海大桥项目</td>
+            <td>343300</td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td>合计</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
+
+<script type="text/javascript">
+
+    var calcTotal=function(table,column){//合计，表格对象，对哪一列进行合计，第一列从0开始
+
+        var trs=table.getElementsByTagName('tr');
+
+        var start=1,//忽略第一行的表头
+
+            end=trs.length-1;//忽略最后合计的一行
+
+        var total=0;
+
+        for(var i=start;i<end;i++){
+
+            var td=trs[i].getElementsByTagName('td')[column];
+
+            var t=parseFloat(td.innerHTML);
+
+            if(t)total+=t;
+
+        }
+
+        trs[end].getElementsByTagName('td')[column].innerHTML=total;
+
+    };
+
+    calcTotal(document.getElementById('table'),1);
+
+</script>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
